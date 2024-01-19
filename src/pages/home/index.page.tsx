@@ -8,9 +8,11 @@ import {
   Label,
   PageTitle,
   TrendingBooks,
+  TrendingWrapper,
 } from './styles'
 import Link from 'next/link'
 import CommentCard from '@/components/CommentCard'
+import BookCard from '@/components/BookCard'
 
 export default function Home() {
   return (
@@ -40,6 +42,12 @@ export default function Home() {
                 <CaretRight />
               </Link>
             </Label>
+            <TrendingWrapper>
+              <BookCard />
+              <BookCard />
+              <BookCard />
+              <BookCard />
+            </TrendingWrapper>
           </TrendingBooks>
         </BooksContainer>
       </Container>

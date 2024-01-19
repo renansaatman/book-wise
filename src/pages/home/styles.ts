@@ -55,4 +55,12 @@ export const BookCards = styled('div', {
   gap: '$3',
 })
 
-export const TrendingBooks = styled('div', {})
+export const TrendingBooks = styled('div', {
+  width: '20.25rem',
+})
+
+export const TrendingWrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$3',
+})
