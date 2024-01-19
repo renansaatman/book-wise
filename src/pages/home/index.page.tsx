@@ -10,7 +10,7 @@ import {
   TrendingBooks,
 } from './styles'
 import Link from 'next/link'
-import BookCard from '@/components/BookCard'
+import CommentCard from '@/components/CommentCard'
 
 export default function Home() {
   return (
@@ -27,9 +27,9 @@ export default function Home() {
               <span>Avaliações mais recentes</span>
             </Label>
             <BookCards>
-              <BookCard />
-              <BookCard />
-              <BookCard />
+              <CommentCard />
+              <CommentCard />
+              <CommentCard />
             </BookCards>
           </BooksRatings>
           <TrendingBooks>

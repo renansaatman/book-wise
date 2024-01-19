@@ -1,7 +1,7 @@
 import { styled } from '@/stitches.config'
 
 export const Container = styled('main', {
-  margin: '$13 $24',
+  margin: '$13 24rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -18,12 +18,24 @@ export const PageTitle = styled('h1', {
 })
 
 export const Label = styled('div', {
-  span: {
-    fontSize: '$sm',
-    lineHeight: '$base',
-  },
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 
+  fontSize: '$sm',
+  lineHeight: '$base',
   marginBottom: '$4',
+
+  a: {
+    textDecoration: 'none',
+    color: '$purple100',
+    fontWeight: '$bold',
+
+    display: 'flex',
+    gap: '$2',
+    alignItems: 'center',
+  },
 })
 
 export const BooksContainer = styled('div', {
@@ -33,7 +45,9 @@ export const BooksContainer = styled('div', {
   gap: '$16',
 })
 
-export const BooksRatings = styled('div', {})
+export const BooksRatings = styled('div', {
+  width: '38rem',
+})
 
 export const BookCards = styled('div', {
   display: 'flex',

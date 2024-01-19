@@ -12,6 +12,8 @@ export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+
+  position: 'fixed',
 })
 
 export const SuperiorArea = styled('div', {
