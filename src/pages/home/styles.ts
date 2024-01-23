@@ -1,7 +1,7 @@
 import { styled } from '@/stitches.config'
 
 export const Container = styled('main', {
-  margin: '$13 24rem',
+  margin: '$13 $6 $13 24rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -46,7 +46,7 @@ export const BooksContainer = styled('div', {
 })
 
 export const BooksRatings = styled('div', {
-  width: '38rem',
+  width: '60rem',
 })
 
 export const BookCards = styled('div', {
