@@ -15,12 +15,23 @@ import googleLogo from '@/public/google-logo.svg'
 import githubLogo from '@/public/github-logo.svg'
 import rocketLaunch from '@/public/rocket-launch.svg'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 
-export default function LoginPage() {
+type LoginPageProps = {
+  callbackUrl?: string
+}
+
+export default function LoginPage({ callbackUrl = '/home' }: LoginPageProps) {
   const router = useRouter()
 
-  function handleSignIn() {
-    router.push('/home')
+  function handleSignIn(provider?: string) {
+    if (!provider) {
+      router.push(callbackUrl)
+      return
+    }
+    signIn(provider, {
+      callbackUrl,
+    })
   }
 
   return (
@@ -34,15 +45,15 @@ export default function LoginPage() {
         </TextContent>
 
         <Buttons>
-          <Button>
+          <Button onClick={() => handleSignIn('google')}>
             <Image src={googleLogo} alt="" width={32} height={32} />
             Entrar com Google
           </Button>
-          <Button>
+          <Button onClick={() => handleSignIn('github')}>
             <Image src={githubLogo} alt="" width={32} height={32} />
             Entrar com Github
           </Button>
-          <Button onClick={handleSignIn}>
+          <Button onClick={() => handleSignIn()}>
             <Image src={rocketLaunch} alt="" width={32} height={32} />
             Acessar como visitante
           </Button>

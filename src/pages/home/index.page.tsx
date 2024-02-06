@@ -13,8 +13,10 @@ import {
 import Link from 'next/link'
 import CommentCard from '@/components/CommentCard'
 import BookCard from '@/components/BookCard'
+import { signOut, useSession } from 'next-auth/react'
 
 export default function Home() {
+  const { data } = useSession()
   return (
     <Layout>
       <Container>
