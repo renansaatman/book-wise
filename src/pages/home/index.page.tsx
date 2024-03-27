@@ -11,12 +11,28 @@ import {
   TrendingWrapper,
 } from './styles'
 import Link from 'next/link'
-import CommentCard from '@/components/CommentCard'
-import BookCard from '@/components/BookCard'
-import { signOut, useSession } from 'next-auth/react'
+import RatingCard, { RatingWithAuthorAndBook } from '@/components/RatingCard'
+import BookCard, { BookWithAvgRating } from '@/components/BookCard'
+import { useQuery } from '@tanstack/react-query'
+import { api } from '@/lib/axios'
 
 export default function Home() {
-  const { data } = useSession()
+  const { data: ratings } = useQuery<RatingWithAuthorAndBook[]>({
+    queryKey: ['latest-ratings'],
+    queryFn: async () => {
+      const { data } = await api.get('/ratings/latest')
+      return data?.ratings ?? []
+    },
+  })
+
+  const { data: popularBooks } = useQuery<BookWithAvgRating[]>({
+    queryKey: ['popular-books'],
+    queryFn: async () => {
+      const { data } = await api.get('/books/popular')
+      return data?.books ?? []
+    },
+  })
+
   return (
     <Layout>
       <Container>
@@ -31,24 +47,23 @@ export default function Home() {
               <span>Avaliações mais recentes</span>
             </Label>
             <BookCards>
-              <CommentCard />
-              <CommentCard />
-              <CommentCard />
+              {ratings?.map((rating) => (
+                <RatingCard key={rating.id} rating={rating} />
+              ))}
             </BookCards>
           </BooksRatings>
           <TrendingBooks>
             <Label>
               <span>Livros populares</span>
-              <Link href="#">
+              <Link href="/explore">
                 Ver mais
                 <CaretRight />
               </Link>
             </Label>
             <TrendingWrapper>
-              <BookCard />
-              <BookCard />
-              <BookCard />
-              <BookCard />
+              {popularBooks?.map((book) => (
+                <BookCard key={`popular-${book.id}`} book={book} />
+              ))}
             </TrendingWrapper>
           </TrendingBooks>
         </BooksContainer>

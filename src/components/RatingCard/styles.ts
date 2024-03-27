@@ -49,7 +49,7 @@ export const UserText = styled('div', {
   },
 })
 
-export const Rating = styled('div', {
+export const RatingStars = styled('div', {
   display: 'flex',
   gap: '$1',
 })

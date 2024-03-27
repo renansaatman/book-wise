@@ -79,3 +79,25 @@ export const LoginButton = styled('button', {
   padding: '$1',
   cursor: 'pointer',
 })
+
+export const UserInfoWrapper = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$3',
+
+  img: {
+    borderRadius: '$full',
+  },
+})
+
+export const ImageWrapper = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  width: 34,
+  height: 34,
+
+  borderRadius: '$full',
+  background: '$gradient-vertical',
+})

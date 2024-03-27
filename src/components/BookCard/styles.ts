@@ -27,6 +27,12 @@ export const Title = styled('h2', {
   lineHeight: '$short',
   fontSize: '$md',
   fontWeight: '$bold',
+
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  '-webkit-line-clamp': 2,
+  '-webkit-box-orient': 'vertical',
 })
 
 export const Author = styled('span', {
